@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valores - Maior e Menor</title>
+    <script>
+        let valores = [];
+
+        function adicionarValor() {
+            let valor = parseFloat(document.getElementById('valor').value);
+            valores.push(valor);
+            document.getElementById('listaValores').innerText = "Valores inseridos: " + valores.join(', ');
+        }
+
+        function mostrarTodos() {
+            document.getElementById('resultado').innerText = "Todos os valores: " + valores.join(', ');
+        }
+
+        function mostrarMaior() {
+            let maior = Math.max(...valores);
+            document.getElementById('resultado').innerText = "Maior valor: " + maior;
+        }
+
+        function mostrarMenor() {
+            let menor = Math.min(...valores);
+            document.getElementById('resultado').innerText = "Menor valor: " + menor;
+        }
+    </script>
+</head>
+<body>
+    <h1>Inserir Valores</h1>
+    <label>Valor: <input type="number" id="valor"></label><br><br>
+    <button onclick="adicionarValor()">Adicionar Valor</button><br><br>
+
+    <h2>Operações:</h2>
+    <button onclick="mostrarTodos()">Mostrar Todos os Valores</button>
+    <button onclick="mostrarMaior()">Mostrar Maior Valor</button>
+    <button onclick="mostrarMenor()">Mostrar Menor Valor</button>
+
+    <p id="listaValores"></p>
+    <p id="resultado"></p>
+</body>
+</html>

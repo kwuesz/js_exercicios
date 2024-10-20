@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma e Contagem de Números</title>
+    <script>
+        function calcularSoma() {
+            let numeros = document.getElementById('numeros').value.split(',').map(Number);
+            let soma = numeros.reduce((acc, num) => acc + num, 0);
+            let media = soma / numeros.length;
+            let pares = numeros.filter(num => num % 2 === 0).length;
+            let impares = numeros.length - pares;
+
+            document.getElementById('resultado').innerHTML = `
+                Soma: ${soma} <br>
+                Média: ${media.toFixed(2)} <br>
+                Pares: ${pares} <br>
+                Ímpares: ${impares}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Somar Números</h1>
+    <p>Insira números separados por vírgula:</p>
+    <input type="text" id="numeros" placeholder="Ex: 1,2,3,4,5">
+    <button onclick="calcularSoma()">Calcular</button>
+    <p id="resultado"></p>
+</body>
+</html>

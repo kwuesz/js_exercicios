@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Piso</title>
+    <script>
+        function calcularCusto() {
+            let comprimento = parseFloat(document.getElementById('comprimento').value);
+            let largura = parseFloat(document.getElementById('largura').value);
+            let area = comprimento * largura;
+            let custo = area * 36;
+
+            document.getElementById('resultado').innerText = "Custo total: R$ " + custo.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Cálculo de Piso</h1>
+    <label>Comprimento do cômodo (m): <input type="number" id="comprimento"></label><br><br>
+    <label>Largura do cômodo (m): <input type="number" id="largura"></label><br><br>
+    <button onclick="calcularCusto()">Calcular</button>
+    <p id="resultado"></p>
+</body>
+</html>

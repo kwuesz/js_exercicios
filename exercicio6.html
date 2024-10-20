@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Força Resultante e Ação/Reação</title>
+    <script>
+        // Função para calcular a força resultante (Situação 1)
+        function calcularForcaResultante() {
+            // Captura os valores inseridos nos inputs
+            let massa = parseFloat(document.getElementById("massa").value);
+            let aceleracao1 = parseFloat(document.getElementById("aceleracao1").value);
+            let aceleracao2 = parseFloat(document.getElementById("aceleracao2").value);
+
+            // Validação básica dos inputs
+            if (isNaN(massa) || isNaN(aceleracao1) || isNaN(aceleracao2)) {
+                document.getElementById("resultado1").textContent = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            // Cálculo da aceleração resultante
+            let aceleracaoResultante = Math.abs(aceleracao1 - aceleracao2);
+
+            // Cálculo da força resultante (F = m * a)
+            let forcaResultante = massa * aceleracaoResultante;
+
+            // Exibição do resultado
+            document.getElementById("resultado1").textContent = "Força resultante: " + forcaResultante.toFixed(2) + " N";
+        }
+
+        // Função para calcular a força de ação/reação (Situação 2)
+        function calcularForcaAcaoReacao() {
+            // Captura os valores inseridos nos inputs
+            let massa1 = parseFloat(document.getElementById("massa1").value);
+            let aceleracao1 = parseFloat(document.getElementById("aceleracao1_obj1").value);
+            let massa2 = parseFloat(document.getElementById("massa2").value);
+            let aceleracao2 = parseFloat(document.getElementById("aceleracao2_obj2").value);
+
+            // Validação básica dos inputs
+            if (isNaN(massa1) || isNaN(aceleracao1) || isNaN(massa2) || isNaN(aceleracao2)) {
+                document.getElementById("resultado2").textContent = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            // Cálculo da força de ação para o objeto 1 e 2 (F = m * a)
+            let forcaAcao1 = massa1 * aceleracao1;
+            let forcaAcao2 = massa2 * aceleracao2;
+
+            // A força de reação será equivalente à força de ação
+            let forcaReacao = forcaAcao1;
+
+            // Exibição dos resultados
+            document.getElementById("resultado2").textContent = "Força de ação no objeto 1: " + forcaAcao1.toFixed(2) + " N\n" +
+                  " | Força de ação no objeto 2: " + forcaAcao2.toFixed(2) + " N\n" +
+                  " | Força de reação: " + forcaReacao.toFixed(2) + " N (em direções opostas)";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo de Forças</h1>
+
+        <!-- Inputs para Situação 1: Força Resultante -->
+        <h2>Situação 1: Força Resultante</h2>
+        <label for="massa">Massa do objeto (kg): </label>
+        <input type="number" id="massa" step="0.01"><br><br>
+
+        <label for="aceleracao1">Aceleração 1 (m/s²): </label>
+        <input type="number" id="aceleracao1" step="0.01"><br><br>
+
+        <label for="aceleracao2">Aceleração 2 (m/s²): </label>
+        <input type="number" id="aceleracao2" step="0.01"><br><br>
+
+        <a href="#" onclick="calcularForcaResultante()">Calcular Força Resultante</a>
+
+        <p id="resultado1"></p>
+
+        <!-- Inputs para Situação 2: Força de Ação e Reação -->
+        <h2>Situação 2: Força de Ação e Reação</h2>
+        <label for="massa1">Massa do objeto 1 (kg): </label>
+        <input type="number" id="massa1" step="0.01"><br><br>
+
+        <label for="aceleracao1_obj1">Aceleração do objeto 1 (m/s²): </label>
+        <input type="number" id="aceleracao1_obj1" step="0.01"><br><br>
+
+        <label for="massa2">Massa do objeto 2 (kg): </label>
+        <input type="number" id="massa2" step="0.01"><br><br>
+
+        <label for="aceleracao2_obj2">Aceleração do objeto 2 (m/s²): </label>
+        <input type="number" id="aceleracao2_obj2" step="0.01"><br><br>
+
+        <a href="#" onclick="calcularForcaAcaoReacao()">Calcular Força de Ação e Reação</a>
+
+        <p id="resultado2"></p>
+    </div>
+</body>
+</html>

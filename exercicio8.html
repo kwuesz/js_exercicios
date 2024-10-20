@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ligações Químicas</title>
+    <script>
+        function calcularIonica() {
+            let eletronsMetal = parseInt(document.getElementById('eletronsMetal').value);
+            let eletronsAmetal = parseInt(document.getElementById('eletronsAmetal').value);
+            
+            document.getElementById('resultadoIonica').innerText = 
+                `Fórmula iônica: ${eletronsMetal === eletronsAmetal ? "1:1" : eletronsMetal + ":" + eletronsAmetal}`;
+        }
+
+        function calcularCovalente() {
+            let ligacoesMetal = parseInt(document.getElementById('ligacoesMetal').value);
+            let ligacoesAmetal = parseInt(document.getElementById('ligacoesAmetal').value);
+
+            document.getElementById('resultadoCovalente').innerText = 
+                `Fórmula molecular: ${ligacoesAmetal} átomos de H para ${ligacoesMetal} de O`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Ligações Químicas</h1>
+    <h2>Ligações Iônicas</h2>
+    <label>Número de elétrons perdidos (Metal): <input type="number" id="eletronsMetal"></label><br><br>
+    <label>Número de elétrons ganhos (Ametal): <input type="number" id="eletronsAmetal"></label><br><br>
+    <button onclick="calcularIonica()">Calcular Ligação Iônica</button>
+    <p id="resultadoIonica"></p>
+
+    <h2>Ligações Covalentes</h2>
+    <label>Número de ligações (Metal): <input type="number" id="ligacoesMetal"></label><br><br>
+    <label>Número de ligações (Ametal): <input type="number" id="ligacoesAmetal"></label><br><br>
+    <button onclick="calcularCovalente()">Calcular Ligação Covalente</button>
+    <p id="resultadoCovalente"></p>
+</body>
+</html>

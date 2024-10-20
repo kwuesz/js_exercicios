@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função Exponencial</title>
+    <script>
+        function calcularExponencial() {
+            let x = parseFloat(document.getElementById('x').value);
+            let resultado = Math.exp(x);
+
+            document.getElementById('resultado').innerText = "f(x) = e^" + x + " = " + resultado.toFixed(4);
+        }
+    </script>
+</head>
+<body>
+    <h1>Função Exponencial f(x) = e^x</h1>
+    <label>Insira o valor de x: <input type="number" id="x"></label><br><br>
+    <button onclick="calcularExponencial()">Calcular</button>
+    <p id="resultado"></p>
+</body>
+</html>
